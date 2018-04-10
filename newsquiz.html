@@ -10,29 +10,57 @@
       <h1>News quiz for April 9, 2018</h1>
 
       <div id="question-1" class="form-group">
-        <label class="control-label">What was Trump's response to hearing of the Central American migrants in caravans seeking asylum in the US?</label>
-        <input type="text" class="form-control" />
+        <label class="control-label">True or False: Trump deployed the National Guard in response to hearing of Central American migrants in caravans seeking asylum in the US.</label>
+        <input type="text" class="form-control" id="box" />
       </div>
 
       <div id="question-2" class="form-group">
         <label class="control-label">Which state is suspected of bombing a Syrian air base?</label>
-        <select class="form-control">
+        <select class="form-control" id="choices">
           <option value="answer-1">USA</option>
           <option value="answer-2">Lebanon</option>
-          <option value="answer-2">Israel</option>
-          <option value="answer-2">Turkey</option>
+          <option value="answer-3">Israel</option>
+          <option value="answer-4">Turkey</option>
         </select>
       </div>
 
       <div class="form-group">
         <input id="grade-it" type="button" value="Grade my quiz" class="btn btn-primary" />
+        <input id="answers" type="button" value="Show me the answers" class="btn btn-primary" />
       </div>
     </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
+      $('#grade-it').on('click', function() {
+      var answer = $('#box').val();
+      console.log(answer);
+
+      if (answer == 'true' || answer == 'True') {
+        alert('Correct, he is sending the National Guard to the border.');
+        $('#question-1').addClass('has-success');
+      }
+      else {
+        alert('Wrong.');
+        $('#question-1').addClass('has-error');
+};
 
 
+        var answer2 = $('#choices').val();
+
+        if (answer2 == 'answer-3') {
+            $('#question-2').addClass('has-success');
+          }
+        else {
+            $('#question-2').addClass('has-error');
+          }
+});
+
+  //    $('#answers').on('click', function() {
+
+//      $('#question-1').text('True');
+//      $('#question-2').text('Israel');
 
     </script>
+
   </body>
 </html>
