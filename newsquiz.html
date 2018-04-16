@@ -8,7 +8,7 @@
   <body>
     <div class="container">
       <h1>News quiz for April 9, 2018</h1>
-
+      <div id="questions">
       <div id="question-1" class="form-group">
         <label class="control-label">True or False: Trump deployed the National Guard in response to hearing of Central American migrants in caravans seeking asylum in the US.</label>
         <input type="text" class="form-control" id="box" />
@@ -34,11 +34,17 @@
         <input id="answers" type="button" value="Show me the answers" class="btn btn-primary" />
       </div>
     </div>
+    </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
+
+
       $('#grade-it').on('click', function() {
       var answer = $('#box').val();
       console.log(answer);
+
+      $('#questions').removeClass('has-success');   // right answer stays red ?????
+      $('#questions').removeClass('has-error');
 
       if (answer == 'true' || answer == 'True') {
         alert('Correct, he is sending the National Guard to the border.');
@@ -61,6 +67,7 @@
 
           var answer3 = $('#box2').val();
 
+
           if (answer3 == 'Hungary') {
               $('#question-3').addClass('has-success');
             }
@@ -69,6 +76,14 @@
             }
 });
 
+  $('#answers').on('click', function() {
+
+      $('#box').val('True');
+      $('#choices').val('answer-3');
+      $('#box2').val('Hungary');
+
+
+});
   //    $('#answers').on('click', function() {
 
 //      $('#question-1').text('True');
